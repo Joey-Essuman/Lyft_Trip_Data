@@ -1,0 +1,53 @@
+SELECT * FROM trips;
+SELECT * FROM riders;
+SELECT * FROM cars;
+
+SELECT trips.id FROM trips;
+SELECT riders.id FROM riders;
+SELECT cars.id FROM cars;
+
+SELECT riders.first,
+   riders.last,
+   cars.model
+FROM riders, cars;
+
+SELECT trips.type,
+  trips.cost,
+  trips.date,
+  trips.dropoff,
+  trips.pickup,
+  riders.username,
+  riders.first,
+  riders.last
+FROM trips
+LEFT JOIN riders
+  ON trips.rider_id = riders.id;
+
+SELECT *
+FROM trips
+JOIN cars
+  ON trips.car_id = cars.id;
+
+SELECT *
+FROM riders
+UNION
+SELECT *
+FROM riders2;
+
+SELECT AVG(cost)
+FROM trips;
+
+SELECT *
+FROM riders
+WHERE total_trips < 500;
+
+SELECT COUNT(*)
+FROM cars
+WHERE status = 'active';
+
+SELECT *
+FROM cars
+ORDER BY trips_completed DESC
+LIMIT 2;
+
+
